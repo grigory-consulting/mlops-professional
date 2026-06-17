@@ -1,0 +1,48 @@
+stages:
+  generate_data:
+    cmd: python src/generate_data.py
+    deps:
+      - src/generate_data.py
+    params:
+      - seed
+      - data.n_samples
+      - data.n_features
+      - data.n_informative
+      - data.n_redundant
+      - data.weights
+    outs:
+      - data/raw.npz
+
+  split:
+    cmd: python src/split.py
+    deps:
+      - src/split.py
+      - data/raw.npz
+    params:
+      - seed
+      - data.test_size
+    outs:
+      - data/X_train.npy
+      - data/X_test.npy
+      - data/y_train.npy
+      - data/y_test.npy
+
+  train:
+    cmd: python src/train_rf.py
+    deps:
+      - src/train_rf.py
+      - data/X_train.npy
+      - data/X_test.npy
+      - data/y_train.npy
+      - data/y_test.npy
+    params:
+      - seed
+      - rf.n_estimators
+      - rf.max_depth
+      - mlflow.experiment
+      - mlflow.tracking_uri
+    outs:
+      - models/rf.pkl
+    metrics:
+      - reports/metrics.json:
+          cache: false

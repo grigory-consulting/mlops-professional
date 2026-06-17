@@ -1,0 +1,17 @@
+seed: 1
+
+data:
+  n_samples: 500
+  n_features: 20
+  n_informative: 8
+  n_redundant: 4
+  weights: [0.7, 0.3]
+  test_size: 0.25
+
+rf:
+  n_estimators: 300
+  max_depth: 12
+
+mlflow:
+  experiment: dvc-rf
+  tracking_uri: file:./mlruns
