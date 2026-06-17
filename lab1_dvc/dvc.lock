@@ -1,0 +1,95 @@
+schema: '2.0'
+stages:
+  generate_data:
+    cmd: python src/generate_data.py
+    deps:
+    - path: src/generate_data.py
+      hash: md5
+      md5: 3417688dbae146f8e772c7225db9c551
+      size: 779
+    params:
+      params.yaml:
+        data.n_features: 20
+        data.n_informative: 8
+        data.n_redundant: 4
+        data.n_samples: 500
+        data.weights:
+        - 0.7
+        - 0.3
+        seed: 1
+    outs:
+    - path: data/raw.npz
+      hash: md5
+      md5: ee87a4c38cb0e6799b20a73edbde852a
+      size: 84490
+  split:
+    cmd: python src/split.py
+    deps:
+    - path: data/raw.npz
+      hash: md5
+      md5: ee87a4c38cb0e6799b20a73edbde852a
+      size: 84490
+    - path: src/split.py
+      hash: md5
+      md5: c89df37682f2c75981868a67f1a5646f
+      size: 838
+    params:
+      params.yaml:
+        data.test_size: 0.25
+        seed: 1
+    outs:
+    - path: data/X_test.npy
+      hash: md5
+      md5: ac2d33604c7fda07357502cfc18a99d0
+      size: 20128
+    - path: data/X_train.npy
+      hash: md5
+      md5: 6faa8ce1def500aee12e7ff862e04954
+      size: 60128
+    - path: data/y_test.npy
+      hash: md5
+      md5: 10d0d2ccf3b6481e994e21577c2d6f8e
+      size: 1128
+    - path: data/y_train.npy
+      hash: md5
+      md5: 874dbadd771b8b67583fa25d8d97bd9e
+      size: 3128
+  train:
+    cmd: python src/train_rf.py
+    deps:
+    - path: data/X_test.npy
+      hash: md5
+      md5: ac2d33604c7fda07357502cfc18a99d0
+      size: 20128
+    - path: data/X_train.npy
+      hash: md5
+      md5: 6faa8ce1def500aee12e7ff862e04954
+      size: 60128
+    - path: data/y_test.npy
+      hash: md5
+      md5: 10d0d2ccf3b6481e994e21577c2d6f8e
+      size: 1128
+    - path: data/y_train.npy
+      hash: md5
+      md5: 874dbadd771b8b67583fa25d8d97bd9e
+      size: 3128
+    - path: src/train_rf.py
+      hash: md5
+      md5: 42eecdb5e646e68e3acf56abbfb0d8dd
+      size: 2394
+    params:
+      params.yaml:
+        mlflow.experiment: dvc-rf
+        mlflow.tracking_uri: file:./mlruns
+        rf.max_depth: 12
+        rf.n_estimators: 300
+        seed: 1
+    outs:
+    - path: models/rf.pkl
+      hash: md5
+      md5: 83e2d5530bd891070b2edcb3d96e5176
+      size: 1955545
+    - path: reports/metrics.json
+      hash: md5
+      md5: 8731b0aef1d2f558627200ca28373f7b
+      size: 83
