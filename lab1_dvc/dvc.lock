@@ -82,14 +82,14 @@ stages:
         mlflow.experiment: dvc-rf
         mlflow.tracking_uri: file:./mlruns
         rf.max_depth: 12
-        rf.n_estimators: 300
+        rf.n_estimators: 500
         seed: 1
     outs:
     - path: models/rf.pkl
       hash: md5
-      md5: 83e2d5530bd891070b2edcb3d96e5176
-      size: 1955545
+      md5: 3c95cdee4cd84ea8be3768a5167cf737
+      size: 3276345
     - path: reports/metrics.json
       hash: md5
-      md5: 8731b0aef1d2f558627200ca28373f7b
-      size: 83
+      md5: 14788726f7ece6ed3248060cef5ad59d
+      size: 84
