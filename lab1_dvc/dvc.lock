@@ -12,7 +12,7 @@ stages:
         data.n_features: 20
         data.n_informative: 8
         data.n_redundant: 4
-        data.n_samples: 500
+        data.n_samples: 5000
         data.weights:
         - 0.7
         - 0.3
@@ -20,15 +20,15 @@ stages:
     outs:
     - path: data/raw.npz
       hash: md5
-      md5: ee87a4c38cb0e6799b20a73edbde852a
-      size: 84490
+      md5: ad26ca9b765cb82f3e9eea05f339f3ff
+      size: 840490
   split:
     cmd: python src/split.py
     deps:
     - path: data/raw.npz
       hash: md5
-      md5: ee87a4c38cb0e6799b20a73edbde852a
-      size: 84490
+      md5: ad26ca9b765cb82f3e9eea05f339f3ff
+      size: 840490
     - path: src/split.py
       hash: md5
       md5: c89df37682f2c75981868a67f1a5646f
@@ -40,39 +40,39 @@ stages:
     outs:
     - path: data/X_test.npy
       hash: md5
-      md5: ac2d33604c7fda07357502cfc18a99d0
-      size: 20128
+      md5: a0a4ae87bed7a223be172f2e304d540a
+      size: 200128
     - path: data/X_train.npy
       hash: md5
-      md5: 6faa8ce1def500aee12e7ff862e04954
-      size: 60128
+      md5: 741fa92f19846ab65ce8a7c7cbc5f77a
+      size: 600128
     - path: data/y_test.npy
       hash: md5
-      md5: 10d0d2ccf3b6481e994e21577c2d6f8e
-      size: 1128
+      md5: fd96236d3264d89854da5cc63da2f271
+      size: 10128
     - path: data/y_train.npy
       hash: md5
-      md5: 874dbadd771b8b67583fa25d8d97bd9e
-      size: 3128
+      md5: 8ad16d7d4a93868459ce192e7a04a5ed
+      size: 30128
   train:
     cmd: python src/train_rf.py
     deps:
     - path: data/X_test.npy
       hash: md5
-      md5: ac2d33604c7fda07357502cfc18a99d0
-      size: 20128
+      md5: a0a4ae87bed7a223be172f2e304d540a
+      size: 200128
     - path: data/X_train.npy
       hash: md5
-      md5: 6faa8ce1def500aee12e7ff862e04954
-      size: 60128
+      md5: 741fa92f19846ab65ce8a7c7cbc5f77a
+      size: 600128
     - path: data/y_test.npy
       hash: md5
-      md5: 10d0d2ccf3b6481e994e21577c2d6f8e
-      size: 1128
+      md5: fd96236d3264d89854da5cc63da2f271
+      size: 10128
     - path: data/y_train.npy
       hash: md5
-      md5: 874dbadd771b8b67583fa25d8d97bd9e
-      size: 3128
+      md5: 8ad16d7d4a93868459ce192e7a04a5ed
+      size: 30128
     - path: src/train_rf.py
       hash: md5
       md5: 42eecdb5e646e68e3acf56abbfb0d8dd
@@ -82,14 +82,14 @@ stages:
         mlflow.experiment: dvc-rf
         mlflow.tracking_uri: file:./mlruns
         rf.max_depth: 12
-        rf.n_estimators: 500
+        rf.n_estimators: 300
         seed: 1
     outs:
     - path: models/rf.pkl
       hash: md5
-      md5: 3c95cdee4cd84ea8be3768a5167cf737
-      size: 3276345
+      md5: 6aa71657dfa8b5f59eac14f40a8b9e03
+      size: 9886265
     - path: reports/metrics.json
       hash: md5
-      md5: 14788726f7ece6ed3248060cef5ad59d
-      size: 84
+      md5: 93b6bd29d43a41faa69f55ca497c86ac
+      size: 83
