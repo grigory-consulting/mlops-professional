@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store
+labs/data/
+labs/models/
+labs/.cache/
+labs/mlflow.db
+labs/mlartifacts/
+labs/mlruns/
+labs/artifacts/
