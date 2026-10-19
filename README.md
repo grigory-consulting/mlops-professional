@@ -20,11 +20,6 @@ python prefetch.py                 # Banking77 und Modelle, rund 0,6 GB
 python prefetch.py --check
 ```
 
-Danach im Ordner `labs/` JupyterLab starten (`jupyter lab`) und nacheinander öffnen:
-
-1. `lab0_setup_check_student.ipynb`: prüft Pakete, Daten, Modelle und MLflow; am Ende steht "Alles bereit" oder eine Liste der Mängel
-2. `lab1_embeddings_student.ipynb`: Lab 1, Embedding-Modelle evaluieren und reproduzierbar tracken
-
 MLflow-Oberfläche (im Ordner `labs/`):
 
 ```bash
@@ -37,7 +32,7 @@ Lab 1 braucht kein Docker.
 
 | Meldung oder Beobachtung | Abhilfe |
 |---|---|
-| `No module named 'common'` | Notebook aus dem Ordner `labs/` öffnen |
+| `No module named 'common'` | Notebooks im Ordner `labs/` ablegen und von dort öffnen |
 | Download bricht ab oder hängt | `huggingface.co` im Netz gesperrt: Archiv von `labs/data/` und `labs/models/` vom Trainer holen, entpacken, `python prefetch.py --check` |
 | `prefetch.py --check` meldet fehlende Modelle | `python prefetch.py` erneut starten |
 | Python 3.12 oder neuer | meist unkritisch; bei Installationsfehlern eine 3.11-Umgebung anlegen |
