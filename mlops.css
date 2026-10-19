@@ -1,0 +1,323 @@
+/* MLOps-Deck für Obsidian Slides Extended, Design Seminarblau.
+   Palette wie das diagram-design-Profil devadze-seminar: Diagramme sitzen ohne
+   sichtbaren Kasten auf der Folie. Layout-Korrekturen für den Plugin-Wrapper
+   (section > div[absolute="true"]) sind am laufenden Server geprüft. */
+
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Geist+Mono:wght@400;500&display=swap');
+
+:root {
+  --sb-paper: #f4f7fb;
+  --sb-text: #24364d;
+  --sb-ink: #183b66;
+  --sb-accent: #2459a6;
+  --sb-muted: #5a6b82;
+  --sb-light: #8593a8;
+  --sb-soft: #e8f0fb;
+  --sb-code-bg: #ffffff;
+  --sb-border: #b9c6d8;
+  --sb-warn: #b45309;
+}
+
+.reveal, .reveal-viewport, body { background: var(--sb-paper) !important; }
+
+.reveal {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 33px;
+  line-height: 1.4;
+  color: var(--sb-text);
+}
+
+.reveal a { color: var(--sb-accent); }
+.reveal strong { color: var(--sb-ink); font-weight: 600; }
+
+/* Titel: Instrument Serif, überall gleich groß, Haarlinie mit Akzentstück links */
+.reveal h1, .reveal h2, .reveal h3 {
+  font-family: 'Instrument Serif', serif;
+  font-weight: 400;
+  color: var(--sb-ink);
+  text-transform: none;
+  letter-spacing: -0.005em;
+}
+.reveal h1 { font-size: 1.8em; }
+.reveal .slides section h2 {
+  position: relative;
+  text-align: left;
+  font-size: 1.6em;
+  line-height: 1.1;
+  padding-bottom: 0.28em;
+  margin-bottom: 0.5em;
+  border-bottom: 1px solid var(--sb-border);
+}
+.reveal .slides section h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 96px;
+  height: 3px;
+  background: var(--sb-accent);
+}
+.reveal .slides section h3 { font-size: 1.25em; text-align: left; }
+.reveal h2 code, .reveal h3 code {
+  background: transparent !important;
+  padding: 0 !important;
+  color: var(--sb-accent);
+  font-size: 0.74em;
+}
+
+/* Titelfolie */
+.reveal .slides section.titleslide h1 {
+  font-size: 2.9em;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.15em;
+}
+.reveal .slides section.titleslide h3 {
+  font-size: 1.1em;
+  color: var(--sb-accent);
+  text-align: center;
+}
+.reveal .slides section.titleslide p {
+  font-size: 0.9em;
+  color: var(--sb-light);
+  margin-top: 1.5em;
+}
+
+/* Trennfolien in Navy */
+.reveal .slides section[data-background-color] h1,
+.reveal .slides section[data-background-color] h2,
+.reveal .slides section[data-background-color] p {
+  color: #f1f5f9;
+  border: none;
+  text-align: center;
+}
+.reveal .slides section[data-background-color] h1 { font-size: 2.6em; }
+.reveal .slides section[data-background-color] h2::after { display: none; }
+.reveal .slides section[data-background-color] p { color: #cbd5e1; font-size: 0.85em; }
+.reveal .slides section[data-background-color] code {
+  color: #f1f5f9;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Kompakte Folien: Text kleiner, Titel bleibt gleich groß */
+.reveal .slides section.smaller { font-size: 0.75em; }
+.reveal .slides section.smaller h2 { font-size: 2.13em; }
+.reveal .slides section.smaller h3 { font-size: 1.5em; }
+
+.reveal .slides section p { margin: 0.4em 0; }
+.reveal .slides section p,
+.reveal .slides section li { line-height: 1.35; }
+
+/* Listen */
+.reveal ul, .reveal ol { display: block; margin-left: 1.0em; margin-bottom: 0.3em; }
+.reveal li { margin-bottom: 0.3em; }
+.reveal li li { margin-bottom: 0.15em; }
+.reveal ul li::marker { color: var(--sb-accent); }
+
+/* Tabellen: waagerecht zentriert. Senkrechte Ränder fest lassen, sonst zentriert
+   der Flex-Wrapper die Tabelle auch senkrecht. */
+.reveal table {
+  font-size: 0.72em;
+  font-family: inherit;
+  border-collapse: separate;
+  border-spacing: 0;
+  width: auto;
+  max-width: 100%;
+  margin: 0.4em auto !important;
+}
+.reveal table th {
+  background: var(--sb-soft);
+  color: var(--sb-ink);
+  font-weight: 600;
+  padding: 0.5em 0.8em;
+  border: none;
+  border-bottom: 2px solid var(--sb-ink);
+  text-align: left;
+}
+.reveal table td {
+  padding: 0.4em 0.8em;
+  border: none;
+  border-bottom: 1px solid var(--sb-border);
+}
+
+/* Code: Geist Mono, ohne Ligaturen (>=, !=, -> bleiben lesbar) */
+.reveal code, .reveal pre, .reveal pre code {
+  font-family: 'Geist Mono', ui-monospace, Menlo, monospace;
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "calt" 0;
+}
+.reveal code { font-size: 0.9em; }
+.reveal pre {
+  font-size: 0.60em;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 1px solid var(--sb-border);
+  box-shadow: none;
+  margin: 0.5em 0;
+}
+.reveal .slides section.smaller pre { font-size: 0.72em; }
+.reveal pre code {
+  line-height: 1.5;
+  padding: 0.8em 1em;
+  background: var(--sb-code-bg);
+  max-height: 520px;
+  /* Plugin setzt min-height: 100% auf pre code; mit dem Padding wächst der
+     Codeblock sonst über sein <pre> hinaus und überlappt den Folgetext */
+  min-height: 0 !important;
+  box-sizing: border-box;
+}
+.reveal p code, .reveal li code, .reveal td code, .reveal th code, .reveal blockquote code {
+  background: var(--sb-soft);
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  font-size: 0.85em;
+  color: var(--sb-accent);
+}
+.reveal p code, .reveal li code { white-space: nowrap; }
+.reveal pre + ul, .reveal pre + ol, .reveal pre + p { margin-top: 0.6em; }
+
+/* Blockquotes */
+.reveal blockquote {
+  background: var(--sb-code-bg);
+  border-left: 4px solid var(--sb-accent);
+  border-radius: 0 8px 8px 0;
+  padding: 0.6em 1em;
+  margin: 0.6em 0;
+  font-style: normal;
+  font-family: inherit;
+  color: var(--sb-text);
+  font-size: 0.85em;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: none;
+}
+.reveal blockquote p { margin: 0; }
+
+/* Callouts: Pastellkasten, Icon und Fettschrift des Plugins abräumen */
+.reveal .callout,
+.reveal .callout > .callout-title,
+.reveal .callout > .callout-content {
+  background: none !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.reveal .callout .callout-icon { display: none !important; }
+.reveal .callout > .callout-title { display: block !important; }
+.reveal .callout .callout-title-inner {
+  font-weight: 400 !important;
+  text-align: left !important;
+}
+.reveal .callout .callout-title-inner strong,
+.reveal .callout .callout-content strong { font-weight: 600; }
+
+.reveal .callout[data-type="note"],
+.reveal .callout[data-type="tip"],
+.reveal .callout[data-type="warning"],
+.reveal .callout[data-type="important"] {
+  position: relative !important;
+  background: var(--sb-code-bg) !important;
+  border-left: 4px solid var(--sb-accent) !important;
+  border-radius: 0 8px 8px 0 !important;
+  padding: 0.6em 1em !important;
+  margin: 0.6em 0 !important;
+  font-size: 0.9em;
+  font-family: inherit;
+}
+.reveal .callout[data-type="warning"] { border-left-color: var(--sb-warn) !important; }
+.reveal .callout[data-type="important"] { border-left-color: var(--sb-ink) !important; }
+
+/* Slides Extended zentriert den Folieninhalt senkrecht im Flex-Wrapper:
+   oben beginnen und Blöcke auf volle Breite strecken */
+.reveal .slides section div[absolute="true"] {
+  justify-content: flex-start !important;
+  align-items: stretch !important;
+  padding-top: 0.4em;
+  text-align: left;
+}
+.reveal .slides section[data-background-color] div[absolute="true"],
+.reveal .slides section.titleslide div[absolute="true"] {
+  justify-content: center !important;
+  text-align: center;
+}
+
+/* Zwei Spalten im normalen Textfluss */
+.reveal .two-col { display: flex; gap: 1.5em; width: 100%; }
+.reveal .two-col > div { flex: 1; min-width: 0; }
+.reveal .two-col pre { margin-top: 0.3em; }
+.reveal .two-col img { display: block; margin-left: auto; margin-right: auto; }
+/* Manim-Videos: mittig wie Bilder */
+.reveal .slides section video { display: block; margin-left: auto; margin-right: auto; object-fit: contain; }
+
+/* Bilder: ohne Schatten; über einer Stichpunktliste niedriger, damit unten nichts überläuft.
+   Das Plugin setzt Bilder als direkte Kinder des Wrappers, reines reveal.js in ein <p>. */
+.reveal .slides section div[absolute="true"] img {
+  max-height: 460px;
+  object-fit: contain !important;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0;
+  box-shadow: none !important;
+}
+.reveal .slides section div[absolute="true"]:has(> ul) > img,
+.reveal .slides section div[absolute="true"]:has(> ul) > p > img,
+.reveal .slides section div[absolute="true"]:has(> div.fragment) > img { max-height: 320px; }
+.reveal .slides section div[absolute="true"] img.hoch { max-height: 540px; }
+
+/* Foliennummer und Fortschritt */
+.reveal .slide-number {
+  background-color: transparent;
+  font-family: 'Geist Mono', Menlo, monospace;
+  color: var(--sb-light);
+  font-size: 0.5em;
+}
+.reveal .progress { height: 3px; }
+.reveal .progress span { background: var(--sb-accent); }
+
+/* Syntax-Highlighting. Das Plugin bündelt nur dunkle Themes (zenburn, monokai,
+   vs2015); "highlightTheme: github" endet in 404. Die Token-Farben stehen deshalb
+   hier, und das Frontmatter zeigt mit highlightTheme auf diese Datei. */
+.reveal pre code.hljs,
+.reveal pre code { background: var(--sb-code-bg); color: #24292e; }
+.reveal .hljs-comment,
+.reveal .hljs-quote { color: #6a737d; font-style: italic; }
+.reveal .hljs-keyword,
+.reveal .hljs-selector-tag,
+.reveal .hljs-doctag,
+.reveal .hljs-template-tag,
+.reveal .hljs-type { color: #d73a49; }
+.reveal .hljs-string,
+.reveal .hljs-regexp,
+.reveal .hljs-meta .hljs-string { color: #032f62; }
+.reveal .hljs-number,
+.reveal .hljs-literal,
+.reveal .hljs-attr,
+.reveal .hljs-attribute,
+.reveal .hljs-symbol,
+.reveal .hljs-meta,
+.reveal .hljs-operator,
+.reveal .hljs-variable,
+.reveal .hljs-selector-class,
+.reveal .hljs-selector-id,
+.reveal .hljs-selector-attr,
+.reveal .hljs-selector-pseudo { color: #005cc5; }
+.reveal .hljs-title,
+.reveal .hljs-title.class_,
+.reveal .hljs-title.function_,
+.reveal .hljs-section { color: #6f42c1; }
+.reveal .hljs-built_in,
+.reveal .hljs-bullet { color: #e36209; }
+.reveal .hljs-name,
+.reveal .hljs-selector-tag.hljs-name { color: #22863a; }
+.reveal .hljs-params,
+.reveal .hljs-subst,
+.reveal .hljs-punctuation { color: #24292e; }
+.reveal .hljs-addition { background: #f0fff4; color: #22863a; }
+.reveal .hljs-deletion { background: #ffeef0; color: #b31d28; }
+.reveal .hljs-emphasis { font-style: italic; }
+.reveal .hljs-strong { font-weight: 700; }
+
+/* Luft zwischen Tabelle und folgender Liste */
+.reveal table + ul, .reveal table + ol, .reveal table + p { margin-top: 0.7em; }
