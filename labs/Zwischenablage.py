@@ -13,3 +13,11 @@ query_emb = model.encode(queries["text"].tolist(), normalize_embeddings=True)
 best = (query_emb @ corpus_emb.T).argmax(axis=1)
 hit_rate = (corpus["label"].to_numpy()[best] == queries["label"].to_numpy()).mean()
 print(f"Trefferquote Top-1: {hit_rate:.2f}")
+
+
+
+
+index_emb, seconds = timed_encode(minilm, train["text"].tolist(), BATCH_SIZE)
+rate = len(index_emb)/seconds
+hours_10m = 10_000_000 / rate / 3600 
+print(f"Durchsatz: {rate}, 10 Mio. docs: {hours_10m}")
