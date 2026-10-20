@@ -1,0 +1,66 @@
+stages:
+  validate_data:
+    cmd: python validate_data.py
+    deps:
+      - validate_data.py
+    params:
+      - data
+    outs:
+      - reports/data_report.json:
+          cache: false
+    # Die Daten liegen außerhalb dieses Ordners: Die Prüfung läuft deshalb immer.
+    # Das Training läuft nur neu, wenn sich der Bericht (und damit der Daten-Hash) ändert.
+    always_changed: true
+
+  train:
+    cmd: python train.py
+    deps:
+      - train.py
+      - pipeline_lib.py
+      - reports/data_report.json
+    params:
+      - seed
+      - data.val_fraction
+      - train
+      - registry.experiment
+    outs:
+      - model
+      - reports/train_metrics.json:
+          cache: false
+
+  evaluate:
+    cmd: python evaluate.py
+    deps:
+      - evaluate.py
+      - pipeline_lib.py
+      - model
+      - reports/data_report.json   # Hash über Train und Test: neue Testdaten bewerten neu
+    params:
+      - train.max_length
+    metrics:
+      - reports/eval_metrics.json:
+          cache: false
+
+  gate:
+    cmd: python gate.py
+    deps:
+      - gate.py
+      - reports/eval_metrics.json
+    params:
+      - gate
+    outs:
+      - reports/gate.json:
+          cache: false
+
+  register:
+    cmd: python register.py
+    deps:
+      - register.py
+      - model
+      - reports/gate.json
+      - reports/train_metrics.json
+    params:
+      - registry
+    outs:
+      - reports/registration.json:
+          cache: false

@@ -1,0 +1,26 @@
+# Parameter der Pipeline von Lab 2. Jede Stufe liest nur ihren Abschnitt;
+# dvc.yaml legt fest, welche Parameter welche Stufe neu auslösen.
+seed: 1
+
+data:
+  expected_hash: 3176e3ac9aef7185   # Fingerabdruck von Banking77 (Train + Test), erste 16 Zeichen
+  n_intents: 77
+  min_examples_per_intent: 30
+  val_fraction: 0.1
+
+train:
+  base_model: bert-mini
+  learning_rate: 0.0008             # Größenordnung aus der Hyperparameter-Suche (Lab 2: bester Trial 8,1e-4)
+  batch_size: 64
+  epochs: 3
+  max_length: 32
+  train_fraction: 1.0               # < 1.0: stratifizierte Stichprobe für einen schnellen Probelauf
+
+gate:
+  min_accuracy: 0.85                # darunter wird nichts registriert (Status fail)
+  baseline_accuracy: 0.930          # LogReg auf minilm-l6-Embeddings (Lab 2 misst 0,929)
+  tolerance: 0.02                   # so viel schlechter als die Baseline ist noch ein automatisches pass
+
+registry:
+  experiment: lab2-pipeline
+  model_name: banking-intent-classifier
