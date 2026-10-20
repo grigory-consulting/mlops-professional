@@ -1,2 +1,5 @@
 [core]
     no_scm = True
+    remote = local
+['remote "local"']
+    url = ../tmp/dvc

@@ -9,3 +9,7 @@ labs/mlflow.db
 labs/mlartifacts/
 labs/mlruns/
 labs/artifacts/
+labs/.airflow/
+labs/.venv-airflow/
+labs/tmp/dvc/
+.dvc/

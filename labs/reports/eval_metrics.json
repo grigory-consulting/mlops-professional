@@ -8,6 +8,6 @@
     "balance_not_updated_after_bank_transfer": 0.711,
     "topping_up_by_card": 0.74
   },
-  "texts_per_second": 5025,
+  "texts_per_second": 4895,
   "model_size_mb": 44.8
 }

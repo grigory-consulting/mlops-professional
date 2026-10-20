@@ -54,7 +54,7 @@ stages:
       nfiles: 6
     - path: reports/train_metrics.json
       hash: md5
-      md5: 3cbc519339446860c202d2d335bc621d
+      md5: 6705cfe7b589d89ad201b2c8af4eec28
       size: 632
   evaluate:
     cmd: python evaluate.py
@@ -124,7 +124,7 @@ stages:
       size: 246
     - path: reports/train_metrics.json
       hash: md5
-      md5: 3cbc519339446860c202d2d335bc621d
+      md5: 6705cfe7b589d89ad201b2c8af4eec28
       size: 632
     params:
       params.yaml:
@@ -134,5 +134,5 @@ stages:
     outs:
     - path: reports/registration.json
       hash: md5
-      md5: fecd8ddfdc0edf629fd8a6c0973095fd
+      md5: c1cb10f8d9777e74c8e3e998ac054c7d
       size: 197

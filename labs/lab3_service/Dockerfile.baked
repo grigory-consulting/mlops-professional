@@ -1,0 +1,24 @@
+# syntax=docker/dockerfile:1
+# Lab 3, zweiter Weg: Encoder, Index und Ersatz-Klassifikator im Image.
+# Baut auf dem Image aus `Dockerfile` auf. Modell und Index kommen über benannte
+# Build-Kontexte, der eigentliche Kontext bleibt der kleine Ordner lab3_service/.
+#
+# Bauen (im Ordner labs/, nach `docker build -t mlops-lab3-service:0.1 lab3_service`):
+#   docker build -f lab3_service/Dockerfile.baked \
+#     --build-context models=models/minilm-l6 \
+#     --build-context lab3=artifacts/lab3 \
+#     -t mlops-lab3-service:0.1-minilm-l6 lab3_service
+# Starten (ohne Volumes):
+#   docker run --rm -p 127.0.0.1:8000:8000 mlops-lab3-service:0.1-minilm-l6
+ARG BASE_IMAGE=mlops-lab3-service:0.1
+FROM ${BASE_IMAGE}
+
+ARG ENCODER=minilm-l6
+COPY --from=models --chown=app . /data/models/${ENCODER}
+COPY --from=lab3 --chown=app index_${ENCODER} /data/artifacts/lab3/index_${ENCODER}
+COPY --from=lab3 --chown=app logreg_${ENCODER}.npz /data/artifacts/lab3/
+# Liegt ein fein abgestimmtes BERT aus Lab 2 vor, käme es mit einem weiteren
+# Kontext dazu: COPY --from=classifier . /data/artifacts/lab2/classifier
+
+# Das Image legt fest, welches Paar aus Encoder und Index es enthält.
+ENV ENCODER_PATH=/data/models/${ENCODER}

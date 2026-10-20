@@ -1,0 +1,8 @@
+# Nur der Code und requirements.txt gehören in den Build-Kontext.
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+README.md
+Dockerfile*
+.dockerignore

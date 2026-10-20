@@ -1,0 +1,11 @@
+# Laufzeit-Pakete des Service, dieselben Versionen wie in der Lab-Umgebung.
+# Gleiche Versionen beim Bau des Index und im Service: sonst droht Versions-Skew.
+fastapi==0.142.2
+uvicorn==0.54.0
+pydantic==2.13.5
+numpy==2.0.2
+# Im Dockerfile wird torch vorab als CPU-Wheel installiert (eigener Index).
+torch==2.14.1
+transformers==4.57.6
+# Encoder: derselbe Codepfad (Tokenizer, Pooling, Normierung) wie beim Bau des Index.
+sentence-transformers==5.7.0
