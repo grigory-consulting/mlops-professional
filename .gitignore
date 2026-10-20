@@ -13,3 +13,5 @@ labs/.airflow/
 labs/.venv-airflow/
 labs/tmp/dvc/
 .dvc/
+labs/mlflow-docker.db
+labs/mlartifacts-docker/

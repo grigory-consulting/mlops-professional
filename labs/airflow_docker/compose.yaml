@@ -1,0 +1,40 @@
+# Airflow im Container: Web-UI, Scheduler, Triggerer und DAG-Processor in einem Dienst (airflow standalone).
+#
+# Starten (im Ordner labs/airflow_docker/):
+#   docker compose up --build        erster Build rund 5 min (Airflow-Image und torch)
+#   Oberfläche: http://localhost:8080, ohne Login (lokale Demo)
+# Einmal durchlaufen lassen, ohne Oberfläche:
+#   docker compose run --rm airflow dags test banking_intent_pipeline
+# Beenden: Strg+C, danach docker compose down
+#
+# Voraussetzung: labs/data/ und labs/models/ sind gefüllt (python prefetch.py auf dem Host).
+# Docker Desktop braucht mindestens 4 GB Arbeitsspeicher (Settings > Resources): standalone belegt allein
+# rund 1,3 GB, das Training gut 1 GB dazu. Mit 2 GB beendet der Kernel train (return code -9, up_for_retry).
+name: mlops-lab2-airflow
+
+services:
+  airflow:
+    build: .
+    image: mlops-lab2-airflow:3.3.2
+    command: standalone
+    # Linux-Host: AIRFLOW_UID=$(id -u) setzen, sonst darf der Container nicht in labs/ schreiben.
+    # Docker Desktop (Windows, macOS) braucht das nicht.
+    user: "${AIRFLOW_UID:-50000}:0"
+    ports:
+      - "127.0.0.1:${AIRFLOW_PORT:-8080}:8080"
+    volumes:
+      # Ganzer Ordner labs/: Stufen-Skripte, common/, Daten, Modelle. Ergebnisse (model/, reports/)
+      # landen dadurch wie bei einem Lauf auf dem Host in labs/.
+      - ..:/opt/labs
+    environment:
+      AIRFLOW__CORE__DAGS_FOLDER: /opt/labs/dags
+      AIRFLOW__CORE__LOAD_EXAMPLES: "False"
+      # Das Entrypoint-Skript des Images legt vor jedem Befehl die Airflow-Datenbank an (auch für dags test)
+      _AIRFLOW_DB_MIGRATE: "true"
+      # Lokale Demo: jeder Besucher ist Admin, kein Passwort
+      AIRFLOW__CORE__SIMPLE_AUTH_MANAGER_ALL_ADMINS: "True"
+      LAB_PYTHON: /home/airflow/lab-venv/bin/python
+      # Eigene MLflow-Ablage für Läufe aus dem Container: labs/mlflow.db enthält Pfade des Hosts
+      # (unter Windows C:\...), in die der Container nicht schreiben kann.
+      MLFLOW_TRACKING_URI: sqlite:////opt/labs/mlflow-docker.db
+      MLFLOW_ARTIFACT_ROOT: /opt/labs/mlartifacts-docker

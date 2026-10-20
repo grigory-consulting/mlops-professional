@@ -1,0 +1,12 @@
+# Nur was die Stufen-Skripte der Pipeline brauchen (validate_data bis register), Versionen wie in der
+# Kursumgebung. torch kommt vorher als CPU-Wheel (siehe Dockerfile).
+transformers==4.57.6
+accelerate==1.15.0
+huggingface-hub==0.36.2
+mlflow==2.22.5
+sqlalchemy==2.0.54
+pandas==2.3.3
+numpy==2.0.2
+scikit-learn==1.9.1
+pyarrow==19.0.1
+pyyaml==6.0.3
