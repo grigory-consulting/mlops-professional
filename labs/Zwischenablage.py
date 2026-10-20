@@ -1,47 +1,53 @@
-import pandas as pd
-from sentence_transformers import SentenceTransformer
+# Ordner labs/ finden und zum Arbeitsordner machen: Das Paket common und die Daten liegen dort.
+# Nötig, wenn der Kernel woanders startet (PyCharm, VS Code mit Arbeitsordner im Pack-Root, Quelle in labs/_src/).
+import os, sys
+from pathlib import Path
+for _p in [Path.cwd(), Path.cwd() / "labs", *Path.cwd().parents]:
+    if (_p / "common" / "__init__.py").exists():
+        os.chdir(_p)
+        sys.path.insert(0, str(_p))
+        break
+else:
+    raise RuntimeError("Ordner labs/ nicht gefunden. Öffnen Sie das Notebook aus dem Ordner labs/ des Kursmaterials.")
 
-train_df = pd.read_parquet("data/banking77/train.parquet")
-test_df = pd.read_parquet("data/banking77/test.parquet")
-model = SentenceTransformer("models/minilm-l6", device="cpu")
+import json
+import logging
+import time
+from collections import Counter
 
-corpus = train_df.iloc[:3000]  # Teilmenge, damit es schnell geht
-queries = test_df.sample(200)
-corpus_emb = model.encode(corpus["text"].tolist(), normalize_embeddings=True)
-query_emb = model.encode(queries["text"].tolist(), normalize_embeddings=True)
+import matplotlib.pyplot as plt
+import mlflow
+import optuna
+from mlflow import MlflowClient
+from sklearn.metrics import accuracy_score, f1_score
 
-best = (query_emb @ corpus_emb.T).argmax(axis=1)
-hit_rate = (corpus["label"].to_numpy()[best] == queries["label"].to_numpy()).mean()
-print(f"Trefferquote Top-1: {hit_rate:.2f}")
+from common.paths import ARTIFACTS_DIR, LABS_DIR, offline
 
+offline()  # vor dem ersten Laden eines Modells: die Labs laufen ohne Netzzugriff
 
+from common import dvcrun
+from common.data import dataset_hash, load_banking77
+from common.finetune import (MIN_ACCURACY, SEED, TOLERANCE, baseline_logreg, cached_finetune, evaluate, finetune,
+                             linear_probe, quality_gate, register_classifier, rule_gate, save_classifier,
+                             split_fit_val)
+from common.interactive import explore
+from common.plotstyle import ACCENT, INK, LIGHT, MUTED, WARN, use_course_style
+from common.tracking import CLASSIFIER_NAME, setup_mlflow
 
+use_course_style()
+optuna.logging.set_verbosity(optuna.logging.WARNING)
+OUT = ARTIFACTS_DIR / "lab2"
+PREPARED = OUT / "prepared"  # vorbereitete Läufe, die für die Live-Vorführung zu lange dauern
+OUT.mkdir(parents=True, exist_ok=True)
 
-index_emb, seconds = timed_encode(minilm, train["text"].tolist(), BATCH_SIZE)
-rate = len(index_emb)/seconds
-hours_10m = 10_000_000 / rate / 3600 
-print(f"Durchsatz: {rate}, 10 Mio. docs: {hours_10m}")
+logging.disable(logging.INFO)  # das erste Anlegen der Datenbank schreibt sonst viele Migrationszeilen
+setup_mlflow("lab2")
+logging.disable(logging.NOTSET)
+client = MlflowClient()
+DEMO_START = time.perf_counter()
 
-
-
+train, test, intents = load_banking77()
+fit_df, val_df = split_fit_val(train)  # 10 % stratifiziert als Validierung; das Testset bleibt bis zum Schluss liegen
 DATA_HASH = dataset_hash(train, test)[:16]
-
-
-evalset = build_evalset(train,test, n_queries=1000, seed=SEED)
-evalset.fingerprint
-
-assert DATA_HASH == "3176e3ac9aef7185" and evalset.fingerprint == "e21d87d6477c7f22"
-
-print(f"Daten-Hash {DATA_HASH}, Eval-Set {evalset.fingerprint} (Seed {evalset.seed}): "
-      f"{len(evalset.queries)} Queries gegen {len(evalset.corpus)} Dokumente")
-query_emb, query_seconds = timed_encode(minilm, evalset.queries, BATCH_SIZE)
-metrics = retrieval_metrics(query_emb, evalset.query_labels, index_emb, evalset.corpus_labels, k=10)
-metrics["texts_per_second"] = len(evalset.queries) / query_seconds
-metrics["size_mb"] = size_mb(minilm)
-pd.Series(metrics).round(3)
-
-
-
-per_query = {name: ndcg_per_query(query_embeddings(name, evalset), evalset.query_labels,
-                                  corpus_embeddings(name, evalset), evalset.corpus_labels)
-             for name in ["minilm-l6", "bge-small"]}
+print(f"Training {len(fit_df)}, Validierung {len(val_df)}, Test {len(test)}, Anliegen {len(intents)}, "
+      f"Daten-Hash {DATA_HASH}")
