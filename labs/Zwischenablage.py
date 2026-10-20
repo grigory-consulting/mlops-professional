@@ -39,3 +39,9 @@ metrics = retrieval_metrics(query_emb, evalset.query_labels, index_emb, evalset.
 metrics["texts_per_second"] = len(evalset.queries) / query_seconds
 metrics["size_mb"] = size_mb(minilm)
 pd.Series(metrics).round(3)
+
+
+
+per_query = {name: ndcg_per_query(query_embeddings(name, evalset), evalset.query_labels,
+                                  corpus_embeddings(name, evalset), evalset.corpus_labels)
+             for name in ["minilm-l6", "bge-small"]}
