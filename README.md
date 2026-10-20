@@ -43,8 +43,16 @@ Starten (PowerShell, Terminal oder Git Bash, im Ordner `labs/airflow_docker/`):
 docker compose up --build          # erster Build rund 5 min, danach Sekunden
 ```
 
-Oberfläche: http://localhost:8080 (ohne Login), DAG `banking_intent_pipeline` aktivieren und starten.
-Ohne Oberfläche einmal durchlaufen lassen:
+Oberfläche: http://localhost:8080, ohne Login. Bereit ist sie, sobald im Log
+`Uvicorn running on http://0.0.0.0:8080` erscheint (rund 30 s, vorher bricht der Seitenaufruf ab).
+
+1. *Dags*: `banking_intent_pipeline` steht dort pausiert.
+2. Schalter in der Zeile einschalten. Der Scheduler startet sofort einen Lauf für die letzte Woche,
+   ein zusätzliches *Trigger* ist nicht nötig (sonst trainiert er zweimal hintereinander).
+3. DAG anklicken: *Grid* zeigt die Läufe, *Graph* die sechs Tasks, rund 2 min bis alle grün sind.
+4. Task anklicken, *Logs*: Ausgabe der Stufe, z. B. Gate-Status bei `gate` oder die Version bei `register`.
+
+Ein weiterer Lauf: auf der DAG-Seite oben rechts *Trigger*. Ohne Oberfläche einmal durchlaufen lassen:
 
 ```bash
 docker compose run --rm airflow dags test banking_intent_pipeline
