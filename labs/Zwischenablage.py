@@ -20,5 +20,22 @@ plt.show()
 
 
 
+with mlflow.start_run(run_name="bert-mini-default-3ep"):
+    mlflow.log_param("data_hash", DATA_HASH)
+    default_3ep = cached_finetune(PREPARED / "bert-mini-default-3ep", fit_df, val_df, intents, epochs=3, **DEFAULTS)
+    mlflow.set_tag("prepared", str(default_3ep["from_cache"]).lower())
+    default_3ep.update(evaluate(default_3ep["model"], default_3ep["tokenizer"], test))
 
+with mlflow.start_run(run_name="bert-mini-final-3ep") as final_run:
+    mlflow.log_params({"data_hash": DATA_HASH, "hpo_parent_run_id": parent.info.run_id})
+    final = cached_finetune(PREPARED / "bert-mini-final-3ep", fit_df, val_df, intents, epochs=3, **study.best_params)
+    mlflow.set_tag("prepared", str(final["from_cache"]).lower())
+    final.update(evaluate(final["model"], final["tokenizer"], test))
+
+with mlflow.start_run(run_name="minilm-l6-finetuned-3ep"):
+    mlflow.log_param("data_hash", DATA_HASH)
+    minilm_ft = cached_finetune(PREPARED / "minilm-l6-finetuned-3ep", fit_df, val_df, intents, epochs=3,
+                                learning_rate=1e-3, batch_size=64, base_model="minilm-l6")
+    mlflow.set_tag("prepared", str(minilm_ft["from_cache"]).lower())
+    minilm_ft.update(evaluate(minilm_ft["model"], minilm_ft["tokenizer"], test))
 
