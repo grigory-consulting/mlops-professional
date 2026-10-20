@@ -32,3 +32,31 @@ ax2.axhline(baseline["val_accuracy"], color=MUTED, linestyle="--", label="Baseli
 ax2.set_ylim(0, 1)
 ax2.legend(loc="lower right")
 plt.show()
+
+
+
+
+
+N_TRIALS, N_RANDOM = 12, 6
+
+
+def objective(trial: optuna.Trial) -> float:
+    learning_rate = trial.suggest_float("learning_rate", 1e-5, 1e-2, log=True)
+    batch_size = trial.suggest_categorical("batch_size", [32, 64, 128])
+    with mlflow.start_run(run_name=f"trial-{trial.number:02d}", nested=True):
+        mlflow.log_param("data_hash", DATA_HASH)
+        result = cached_finetune(PREPARED / f"hpo-trial-{trial.number:02d}", fit_df, val_df, intents,
+                                 keep_model=False, learning_rate=learning_rate, batch_size=batch_size, epochs=1)
+    trial.set_user_attr("prepared", result["from_cache"])
+    return result["val_accuracy"]
+
+
+with mlflow.start_run(run_name="hpo-bert-mini") as parent:
+    mlflow.log_params({"data_hash": DATA_HASH, "n_trials": N_TRIALS, "sampler": f"TPESampler, {N_RANDOM} zufällig",
+                       "epochs_per_trial": 1})
+    sampler = optuna.samplers.TPESampler(seed=SEED, n_startup_trials=N_RANDOM)
+    study = optuna.create_study(direction="maximize", sampler=sampler)
+    study.optimize(objective, n_trials=N_TRIALS)
+    mlflow.log_params({f"best_{key}": value for key, value in study.best_params.items()})
+    mlflow.log_metric("best_val_accuracy", study.best_value)
+    mlflow.log_metric("gain_over_default", study.best_value - full_1ep["val_accuracy"])
