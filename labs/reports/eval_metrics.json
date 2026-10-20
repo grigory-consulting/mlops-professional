@@ -1,0 +1,13 @@
+{
+  "test_accuracy": 0.8800390117035111,
+  "test_macro_f1": 0.8791675166311235,
+  "weakest_intents": {
+    "why_verify_identity": 0.464,
+    "get_disposable_virtual_card": 0.701,
+    "verify_my_identity": 0.708,
+    "balance_not_updated_after_bank_transfer": 0.711,
+    "topping_up_by_card": 0.74
+  },
+  "texts_per_second": 5025,
+  "model_size_mb": 44.8
+}

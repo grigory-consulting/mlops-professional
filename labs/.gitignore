@@ -1,0 +1,5 @@
+# DVC-Cache und Pipeline-Outputs mit Cache gehören nicht ins Git
+/.dvc/cache/
+/.dvc/tmp/
+/.dvc/config.local
+/model/

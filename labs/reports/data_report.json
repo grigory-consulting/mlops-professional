@@ -1,0 +1,16 @@
+{
+  "data_hash": "3176e3ac9aef7185",
+  "n_train": 9993,
+  "n_test": 3076,
+  "n_intents": 77,
+  "examples_per_intent_min": 35,
+  "examples_per_intent_max": 187,
+  "checks": {
+    "hash_matches": true,
+    "n_intents": true,
+    "labels_in_range": true,
+    "no_empty_texts": true,
+    "min_examples_per_intent": true
+  },
+  "passed": true
+}

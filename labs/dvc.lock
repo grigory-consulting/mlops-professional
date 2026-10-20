@@ -1,0 +1,138 @@
+schema: '2.0'
+stages:
+  validate_data:
+    cmd: python validate_data.py
+    deps:
+    - path: validate_data.py
+      hash: md5
+      md5: 7ea1f9b1cc29db510ad30e3bb0e3c269
+      size: 1352
+    params:
+      params.yaml:
+        data:
+          expected_hash: 3176e3ac9aef7185
+          n_intents: 77
+          min_examples_per_intent: 30
+          val_fraction: 0.1
+    outs:
+    - path: reports/data_report.json
+      hash: md5
+      md5: 762a511ab0cb59e231320e082b6e51d1
+      size: 340
+  train:
+    cmd: python train.py
+    deps:
+    - path: pipeline_lib.py
+      hash: md5
+      md5: 846897651cc1e5d3a0cc30522ac99427
+      size: 6555
+    - path: reports/data_report.json
+      hash: md5
+      md5: 762a511ab0cb59e231320e082b6e51d1
+      size: 340
+    - path: train.py
+      hash: md5
+      md5: 9fab87e27ab0f774a6900f3bde50de84
+      size: 2265
+    params:
+      params.yaml:
+        data.val_fraction: 0.1
+        registry.experiment: lab2-pipeline
+        seed: 1
+        train:
+          base_model: bert-mini
+          learning_rate: 0.0008
+          batch_size: 64
+          epochs: 3
+          max_length: 32
+          train_fraction: 1.0
+    outs:
+    - path: model
+      hash: md5
+      md5: 4276e5368e3ade2d0e0fb19a082042d8.dir
+      size: 45719915
+      nfiles: 6
+    - path: reports/train_metrics.json
+      hash: md5
+      md5: 3cbc519339446860c202d2d335bc621d
+      size: 632
+  evaluate:
+    cmd: python evaluate.py
+    deps:
+    - path: evaluate.py
+      hash: md5
+      md5: 0d3be69b2eb8f904c6764b36a26b299f
+      size: 1607
+    - path: model
+      hash: md5
+      md5: 4276e5368e3ade2d0e0fb19a082042d8.dir
+      size: 45719915
+      nfiles: 6
+    - path: pipeline_lib.py
+      hash: md5
+      md5: 846897651cc1e5d3a0cc30522ac99427
+      size: 6555
+    - path: reports/data_report.json
+      hash: md5
+      md5: 762a511ab0cb59e231320e082b6e51d1
+      size: 340
+    params:
+      params.yaml:
+        train.max_length: 32
+    outs:
+    - path: reports/eval_metrics.json
+      hash: md5
+      md5: 0f32e1141b3328c564d4e6b5a7cd8787
+      size: 356
+  gate:
+    cmd: python gate.py
+    deps:
+    - path: gate.py
+      hash: md5
+      md5: bc305930b097b54b25b5ee728d975a42
+      size: 2096
+    - path: reports/eval_metrics.json
+      hash: md5
+      md5: 0f32e1141b3328c564d4e6b5a7cd8787
+      size: 356
+    params:
+      params.yaml:
+        gate:
+          min_accuracy: 0.85
+          baseline_accuracy: 0.93
+          tolerance: 0.02
+    outs:
+    - path: reports/gate.json
+      hash: md5
+      md5: e1dc713a306aa47da3a7e8d6982703bb
+      size: 246
+  register:
+    cmd: python register.py
+    deps:
+    - path: model
+      hash: md5
+      md5: 4276e5368e3ade2d0e0fb19a082042d8.dir
+      size: 45719915
+      nfiles: 6
+    - path: register.py
+      hash: md5
+      md5: 686adc4dcc9697578f4bfff0b1e1bd01
+      size: 2867
+    - path: reports/gate.json
+      hash: md5
+      md5: e1dc713a306aa47da3a7e8d6982703bb
+      size: 246
+    - path: reports/train_metrics.json
+      hash: md5
+      md5: 3cbc519339446860c202d2d335bc621d
+      size: 632
+    params:
+      params.yaml:
+        registry:
+          experiment: lab2-pipeline
+          model_name: banking-intent-classifier
+    outs:
+    - path: reports/registration.json
+      hash: md5
+      md5: fecd8ddfdc0edf629fd8a6c0973095fd
+      size: 197

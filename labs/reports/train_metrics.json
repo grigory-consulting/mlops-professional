@@ -1,0 +1,28 @@
+{
+  "run_id": "b67fa6d076a14015b02f3a85b8fd57cc",
+  "data_hash": "3176e3ac9aef7185",
+  "n_train": 8993,
+  "train_seconds": 29.6,
+  "val_accuracy": 0.878,
+  "val_macro_f1": 0.8750688227980028,
+  "history": [
+    {
+      "epoch": 1.0,
+      "val_accuracy": 0.685,
+      "val_macro_f1": 0.6388391544901433,
+      "val_loss": 1.43379807472229
+    },
+    {
+      "epoch": 2.0,
+      "val_accuracy": 0.828,
+      "val_macro_f1": 0.8106604440810045,
+      "val_loss": 0.7203146815299988
+    },
+    {
+      "epoch": 3.0,
+      "val_accuracy": 0.878,
+      "val_macro_f1": 0.8750688227980028,
+      "val_loss": 0.534934937953949
+    }
+  ]
+}

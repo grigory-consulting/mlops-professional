@@ -1,0 +1,10 @@
+{
+  "registered": true,
+  "gate_status": "review",
+  "model_name": "banking-intent-classifier",
+  "aliases": [
+    "candidate"
+  ],
+  "version": 1,
+  "run_id": "b67fa6d076a14015b02f3a85b8fd57cc"
+}

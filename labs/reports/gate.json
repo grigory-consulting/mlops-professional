@@ -1,0 +1,8 @@
+{
+  "status": "review",
+  "reason": "Accuracy 0.880 erfüllt die Mindestqualität, liegt aber mehr als 0.020 unter der Baseline 0.930.",
+  "accuracy": 0.8800390117035111,
+  "baseline_accuracy": 0.93,
+  "min_accuracy": 0.85,
+  "tolerance": 0.02
+}
