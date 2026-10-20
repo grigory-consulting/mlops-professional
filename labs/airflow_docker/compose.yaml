@@ -8,6 +8,8 @@
 # Beenden: Strg+C, danach docker compose down
 #
 # Voraussetzung: labs/data/ und labs/models/ sind gefüllt (python prefetch.py auf dem Host).
+# Windows ohne WSL (Hyper-V-Backend): Kursordner unter Settings > Resources > File sharing freigeben,
+# sonst ist labs/ im Container leer. Ausführliche Anleitung: README.md im Repo.
 # Docker Desktop braucht mindestens 4 GB Arbeitsspeicher (Settings > Resources): standalone belegt allein
 # rund 1,3 GB, das Training gut 1 GB dazu. Mit 2 GB beendet der Kernel train (return code -9, up_for_retry).
 name: mlops-lab2-airflow
