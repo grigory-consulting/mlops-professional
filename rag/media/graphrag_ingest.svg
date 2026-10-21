@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 960 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="graphrag-ingest-title graphrag-ingest-desc">
+      <title id="graphrag-ingest-title">GraphRAG: vom Dokument zur Community-Summary</title>
+      <desc id="graphrag-ingest-desc">GraphRAG extrahiert Entitäten und Relationen aus den Chunks, baut daraus einen Wissensgraphen und fasst dessen Communities zusammen.</desc>
+      <defs>
+        <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#5F6062"/></marker>
+        <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#DB0031"/></marker>
+        <marker id="arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#007FC5"/></marker>
+      </defs>
+      <rect width="100%" height="100%" fill="#ffffff"/>
+      <path d="M 324,92 H 368" fill="none" stroke="#5F6062" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <path d="M 324,276 H 368" fill="none" stroke="#5F6062" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <path d="M 592,92 H 636" fill="none" stroke="#5F6062" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <path d="M 592,276 H 636" fill="none" stroke="#5F6062" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <path d="M 748,136 V 176 Q 748,184 740,184 H 220 Q 212,184 212,192 V 232" fill="none" stroke="#5F6062" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <rect x="100" y="48" width="224" height="88" rx="6" fill="#ffffff"/>
+      <rect x="100" y="48" width="224" height="88" rx="6" fill="#ffffff" stroke="#1A171B" stroke-width="1"/>
+      <text x="212.0" y="91.0" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">Dokumente</text>
+      <text x="212.0" y="113.0" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle">Quellkorpus</text>
+      <rect x="368" y="48" width="224" height="88" rx="6" fill="#ffffff"/>
+      <rect x="368" y="48" width="224" height="88" rx="6" fill="#ffffff" stroke="#1A171B" stroke-width="1"/>
+      <text x="480.0" y="91.0" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">Chunks</text>
+      <text x="480.0" y="113.0" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle">wie im klassischen RAG</text>
+      <rect x="636" y="48" width="224" height="88" rx="6" fill="#ffffff"/>
+      <rect x="636" y="48" width="224" height="88" rx="6" fill="#ffffff" stroke="#1A171B" stroke-width="1"/>
+      <text x="748.0" y="91.0" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">Extraktion</text>
+      <text x="748.0" y="113.0" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle">Entitäten &amp; Relationen</text>
+      <rect x="100" y="232" width="224" height="88" rx="6" fill="#ffffff"/>
+      <rect x="100" y="232" width="224" height="88" rx="6" fill="rgba(219,0,49,0.07)" stroke="#DB0031" stroke-width="1.4"/>
+      <text x="212.0" y="275.0" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">Wissensgraph</text>
+      <text x="212.0" y="297.0" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle">Knoten + Kanten</text>
+      <rect x="368" y="232" width="224" height="88" rx="6" fill="#ffffff"/>
+      <rect x="368" y="232" width="224" height="88" rx="6" fill="#ffffff" stroke="#1A171B" stroke-width="1"/>
+      <text x="480.0" y="275.0" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">Community-Detection</text>
+      <text x="480.0" y="297.0" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle">Cluster im Graph</text>
+      <rect x="636" y="232" width="224" height="88" rx="6" fill="#ffffff"/>
+      <rect x="636" y="232" width="224" height="88" rx="6" fill="#ffffff" stroke="#1A171B" stroke-width="1"/>
+      <text x="748.0" y="275.0" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">Community-Summaries</text>
+      <text x="748.0" y="297.0" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle">globale Fragen</text>
+    </svg>

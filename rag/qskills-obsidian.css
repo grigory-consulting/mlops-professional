@@ -1,0 +1,306 @@
+/* qSkills-Theme für Obsidian Slides Extended (aus qskills.scss + custom-light.scss übertragen) */
+
+:root {
+  --qs-red: #DB0031;
+  --qs-black: #1A171B;
+  --qs-grey: #7B7C7E;
+  --qs-lightgrey: #E8E9E9;
+  --qs-green: #164611;
+}
+
+.reveal {
+  font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
+  font-size: 32px;
+  color: var(--qs-black);
+}
+
+.reveal a { color: var(--qs-red); }
+
+.reveal h1, .reveal h2, .reveal h3 {
+  font-family: inherit;
+  color: var(--qs-red);
+  font-weight: 700;
+  text-transform: none;
+}
+
+.reveal h1 { font-size: 1.9em; }
+.reveal h2 { font-size: 1.3em; }
+.reveal h3 { font-size: 1.05em; color: var(--qs-black); text-align: left; }
+
+/* Rote Akzentlinie unter Folientiteln, wie im qSkills-Master */
+.reveal .slides section h2 {
+  text-align: left;
+  border-bottom: 3px solid var(--qs-red);
+  box-sizing: border-box;
+  width: calc(100% - 170px);
+  padding-bottom: 0.25em;
+  margin-bottom: 0.6em;
+}
+
+/* Dunkle Abschnitts-Folien: weiße Überschrift, keine Linie */
+.reveal .slides section[data-background-color] h1,
+.reveal .slides section[data-background-color] h2,
+.reveal .slides section[data-background-color] h3,
+.reveal .slides section[data-background-color] p {
+  color: #fff;
+  border: none;
+}
+
+/* Titel-Folie */
+.reveal .slides section.titleslide h1 {
+  border-bottom: 4px solid var(--qs-red);
+  color: #fff;
+  padding-bottom: 0.15em;
+}
+
+/* Folien mit viel Inhalt */
+.reveal .slides section.smaller { font-size: 0.8em; }
+.reveal .slides section.smaller h1,
+.reveal .slides section.smaller h2,
+.reveal .slides section.smaller h3 { font-size: inherit; }
+
+.reveal .slides section p,
+.reveal .slides section li { line-height: 1.25; }
+
+/* Claim-Folien: große zentrierte Aussage */
+.reveal .slides section.claim h2 {
+  border: none;
+  font-size: 1.8em;
+  text-align: center;
+  margin-top: 1em;
+  width: 100%;
+}
+
+/* Listen */
+.reveal ul, .reveal ol { display: block; margin-left: 1.2em; margin-bottom: 0.3em; }
+.reveal li { margin-bottom: 0.15em; }
+.reveal ul li::marker { color: var(--qs-red); }
+
+/* Tabellen: nicht vertikal zentrieren (margin:auto frisst sonst den Freiraum) */
+.reveal table { font-size: 0.78em; margin: 0.4em auto !important; }
+.reveal table th { background: var(--qs-red); color: #fff; }
+.reveal table td, .reveal table th { border-color: var(--qs-lightgrey); }
+
+/* Code */
+.reveal pre { font-size: 0.55em; width: 100%; }
+.reveal pre code { line-height: 1.35; }
+
+/* Echte Blockquotes (Beispielzitate) bleiben ein grauer Block */
+.reveal blockquote {
+  background: var(--qs-lightgrey);
+  border-left: 4px solid var(--qs-red);
+  padding: 0.5em 0.9em;
+  margin: 0.75em 0;
+  color: var(--qs-black);
+  width: 100%;
+  box-sizing: border-box;
+  font-style: normal;
+}
+
+/* Callouts: Slides Extended rendert [!warning] & Co. als Pastellkasten mit
+   Font-Awesome-Symbol und komplett fettem Text. Das alles abschalten. */
+.reveal .callout,
+.reveal .callout > .callout-title,
+.reveal .callout > .callout-content {
+  background: none !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.reveal .callout .callout-icon { display: none !important; }
+.reveal .callout > .callout-title { display: block !important; }
+
+.reveal .callout .callout-title-inner {
+  font-weight: 400 !important;
+  text-align: left !important;
+}
+
+.reveal .callout .callout-title-inner strong,
+.reveal .callout .callout-content strong { font-weight: 700; }
+
+/* Hinweise ohne Kasten: der Typ haengt als Versal-Label im linken Rand,
+   ein kurzer Strich trennt ihn vom eingerueckten Textblock. */
+.reveal .callout[data-type="warning"],
+.reveal .callout[data-type="note"],
+.reveal .callout[data-type="tip"] {
+  position: relative !important;
+  padding-left: 7.2em !important;
+  margin: 0.9em 0 !important;
+}
+
+.reveal .callout[data-type="warning"]::before,
+.reveal .callout[data-type="note"]::before,
+.reveal .callout[data-type="tip"]::before {
+  position: absolute;
+  left: 0;
+  top: 0.2em;
+  width: 6.4em;
+  padding-right: 0.5em;
+  text-align: right;
+  font-size: 0.62em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  line-height: 1.5;
+  border-right: 2px solid;
+}
+
+.reveal .callout[data-type="warning"]::before {
+  content: "Achtung";
+  color: var(--qs-red);
+  border-right-color: var(--qs-red);
+}
+
+.reveal .callout[data-type="note"]::before {
+  content: "Hinweis";
+  color: var(--qs-grey);
+  border-right-color: #C9CACB;
+}
+
+.reveal .callout[data-type="tip"]::before {
+  content: "Praxis";
+  color: var(--qs-green);
+  border-right-color: var(--qs-green);
+}
+
+/* Merksatz ([!important]): keine Flaeche, roter Balken links, grosse Type */
+.reveal .callout[data-type="important"] {
+  background: none !important;
+  border-left: 5px solid var(--qs-red) !important;
+  padding: 0.1em 0 0.1em 0.75em !important;
+  margin: 0.7em 0 1em !important;
+  font-size: 1.3em;
+  line-height: 1.35;
+}
+
+.reveal .callout[data-type="important"] .callout-title-inner {
+  text-align: left !important;
+}
+
+/* Auf dunklen Folien traegt der rote Balken nicht, dort weiss */
+.reveal .slides section[data-background-color] .callout[data-type="important"] {
+  border-left-color: #fff !important;
+}
+
+.reveal .slides section[data-background-color] .callout[data-type="warning"]::before,
+.reveal .slides section[data-background-color] .callout[data-type="note"]::before,
+.reveal .slides section[data-background-color] .callout[data-type="tip"]::before {
+  color: #fff;
+  border-right-color: #fff;
+}
+
+/* Slides Extended zentriert Folieninhalt vertikal im Flex-Wrapper;
+   wie im Quarto-Deck oben beginnen und Blöcke auf volle Breite strecken */
+.reveal .slides section div[absolute="true"] {
+  justify-content: flex-start !important;
+  align-items: stretch !important;
+  padding-top: 0.4em;
+  text-align: left;
+}
+
+/* Divider, Claim und Titelfolie bleiben vertikal zentriert */
+.reveal .slides section[data-background-color] div[absolute="true"],
+.reveal .slides section.claim div[absolute="true"],
+.reveal .slides section.titleslide div[absolute="true"] {
+  justify-content: center !important;
+  text-align: center;
+}
+
+/* Bilder wie fig-align: center in Quarto */
+.reveal .slides section div[absolute="true"] p > img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.reveal .mermaid svg { display: block; margin: 0 auto; }
+
+/* Zwei-Spalten-Layout im normalen Textfluss (ersetzt Quarto .columns) */
+.reveal .two-col { display: flex; gap: 1.2em; width: 100%; }
+.reveal .two-col > div { min-width: 0; }
+
+/* Foliennummer dezent */
+.reveal .slide-number {
+  background-color: transparent;
+  color: var(--qs-grey);
+  font-size: 0.55em;
+}
+
+/* Bilder: nicht über die Folie hinauswachsen lassen */
+.reveal .slides section div[absolute="true"] img {
+  max-height: 440px;
+  object-fit: contain !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Absatzabstände etwas straffen */
+.reveal .slides section p { margin: 0.4em 0; }
+
+/* Mermaid: nicht überlaufen, Diagramm zentrieren */
+.reveal svg.mermaid-js, .reveal .mermaid svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Mermaid-Labels sitzen in fixen foreignObject-Boxen; geerbte line-height
+   schneidet sie sonst ab (Übernahme aus custom-light.scss) */
+.reveal .mermaid foreignObject { overflow: visible !important; }
+.reveal .mermaid foreignObject div,
+.reveal .mermaid foreignObject span,
+.reveal .mermaid .nodeLabel,
+.reveal .mermaid .edgeLabel,
+.reveal .mermaid .cluster-label,
+.reveal .mermaid .label {
+  font-size: 0.95em !important;
+  line-height: 1.1 !important;
+}
+
+/* 1) Syntax-Highlighting.
+   Das Plugin liefert nur dunkle Themes mit (plugin/highlight/: zenburn, monokai, vs2015).
+   "highlightTheme: github" gibt es nicht: Der Link läuft ins Leere, der Code bleibt einfarbig.
+   Für helle Codeboxen stehen die Token-Farben deshalb hier, und das Frontmatter des Decks
+   zeigt mit "highlightTheme: <dieses-stylesheet>.css" auf diese Datei (kein toter Link). */
+.reveal pre code.hljs,
+.reveal pre code { background: transparent; color: #24292e; }
+.reveal .hljs-comment,
+.reveal .hljs-quote { color: #6a737d; font-style: italic; }
+.reveal .hljs-keyword,
+.reveal .hljs-selector-tag,
+.reveal .hljs-doctag,
+.reveal .hljs-template-tag,
+.reveal .hljs-type { color: #d73a49; }
+.reveal .hljs-string,
+.reveal .hljs-regexp,
+.reveal .hljs-meta .hljs-string { color: #032f62; }
+.reveal .hljs-number,
+.reveal .hljs-literal,
+.reveal .hljs-attr,
+.reveal .hljs-attribute,
+.reveal .hljs-symbol,
+.reveal .hljs-meta,
+.reveal .hljs-operator,
+.reveal .hljs-variable,
+.reveal .hljs-selector-class,
+.reveal .hljs-selector-id,
+.reveal .hljs-selector-attr,
+.reveal .hljs-selector-pseudo { color: #005cc5; }
+.reveal .hljs-title,
+.reveal .hljs-title.class_,
+.reveal .hljs-title.function_,
+.reveal .hljs-section { color: #6f42c1; }
+.reveal .hljs-built_in,
+.reveal .hljs-bullet { color: #e36209; }
+.reveal .hljs-name,
+.reveal .hljs-selector-tag.hljs-name { color: #22863a; }
+.reveal .hljs-params,
+.reveal .hljs-subst,
+.reveal .hljs-punctuation { color: #24292e; }
+.reveal .hljs-addition { background: #f0fff4; color: #22863a; }
+.reveal .hljs-deletion { background: #ffeef0; color: #b31d28; }
+.reveal .hljs-emphasis { font-style: italic; }
+.reveal .hljs-strong { font-weight: 700; }

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 960 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="frische-fact-check-title frische-fact-check-desc">
+      <title id="frische-fact-check-title">Frische: statischer Index plus Live-Abfrage</title>
+      <desc id="frische-fact-check-desc">Neben dem statischen Index läuft eine Live-Abfrage; der Fact-Check gegen die frische Quelle entscheidet, ob die Antwort herausgeht oder das Retrieval erneut startet.</desc>
+      <defs>
+        <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#5F6062"/></marker>
+        <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#DB0031"/></marker>
+        <marker id="arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#007FC5"/></marker>
+      </defs>
+      <rect width="100%" height="100%" fill="#ffffff"/>
+      <path d="M 184,164 H 216 Q 224,164 224,156 V 140 Q 224,132 232,132 H 248" fill="none" stroke="#5F6062" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <path d="M 184,196 H 216 Q 224,196 224,204 V 220 Q 224,228 232,228 H 248" fill="none" stroke="#5F6062" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <path d="M 456,132 H 480 Q 488,132 488,140 V 164 Q 488,172 496,172 H 512" fill="none" stroke="#5F6062" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <path d="M 456,228 H 480 Q 488,228 488,220 V 196 Q 488,188 496,188 H 512" fill="none" stroke="#5F6062" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <path d="M 680,180 H 712" fill="none" stroke="#5F6062" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <path d="M 796,232 V 296" fill="none" stroke="#DB0031" stroke-width="1.4" marker-end="url(#arrow-accent)"/>
+      <path d="M 796,128 V 64 Q 796,56 788,56 H 360 Q 352,56 352,64 V 96" fill="none" stroke="#DB0031" stroke-width="1.4" marker-end="url(#arrow-accent)"/>
+      <rect x="504.0" y="30" width="132" height="14" rx="2" fill="#ffffff"/>
+      <text x="570" y="41" fill="#DB0031" font-size="11" font-weight="700" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle" letter-spacing="0.08em">NICHT BESTANDEN</text>
+      <rect x="806" y="257" width="84" height="14" rx="2" fill="#ffffff"/>
+      <text x="812" y="268" fill="#DB0031" font-size="11" font-weight="700" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" letter-spacing="0.08em">BESTANDEN</text>
+      <rect x="48" y="144" width="136" height="72" rx="6" fill="#ffffff"/>
+      <rect x="48" y="144" width="136" height="72" rx="6" fill="rgba(95,96,98,0.10)" stroke="#7B7C7E" stroke-width="1"/>
+      <text x="116.0" y="185.0" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">Query</text>
+      <rect x="248" y="96" width="208" height="72" rx="6" fill="#ffffff"/>
+      <rect x="248" y="96" width="208" height="72" rx="6" fill="#ffffff" stroke="#1A171B" stroke-width="1"/>
+      <text x="352.0" y="131.0" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">Retrieval</text>
+      <text x="352.0" y="153.0" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle">statischer Index</text>
+      <rect x="248" y="192" width="208" height="72" rx="6" fill="#ffffff"/>
+      <rect x="248" y="192" width="208" height="72" rx="6" fill="#ffffff" stroke="#1A171B" stroke-width="1"/>
+      <text x="352.0" y="227.0" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">Live-Query</text>
+      <text x="352.0" y="249.0" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle">API / Suche</text>
+      <rect x="512" y="144" width="168" height="72" rx="6" fill="#ffffff"/>
+      <rect x="512" y="144" width="168" height="72" rx="6" fill="#ffffff" stroke="#1A171B" stroke-width="1"/>
+      <text x="596.0" y="185.0" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">Generation</text>
+      <polygon points="796,124 888,180 796,236 704,180" fill="#ffffff"/>
+      <polygon points="796,124 888,180 796,236 704,180" fill="rgba(219,0,49,0.07)" stroke="#DB0031" stroke-width="1.4"/>
+      <text x="796" y="180" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">Fact-Check</text>
+      <rect x="708" y="296" width="176" height="72" rx="6" fill="#ffffff"/>
+      <rect x="708" y="296" width="176" height="72" rx="6" fill="#ffffff" stroke="#1A171B" stroke-width="1"/>
+      <text x="796.0" y="331.0" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">Antwort</text>
+      <text x="796.0" y="353.0" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle">mit Stand</text>
+    </svg>

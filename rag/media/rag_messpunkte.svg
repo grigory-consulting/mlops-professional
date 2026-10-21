@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 960 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="rag-messpunkte-title rag-messpunkte-desc">
+      <title id="rag-messpunkte-title">Zwei Messpunkte im RAG-Pfad</title>
+      <desc id="rag-messpunkte-desc">Context-Recall misst, ob die belegende Stelle überhaupt abgerufen wurde; Faithfulness misst, ob die Antwort durch den abgerufenen Kontext gedeckt ist.</desc>
+      <defs>
+        <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#5F6062"/></marker>
+        <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#DB0031"/></marker>
+        <marker id="arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#007FC5"/></marker>
+      </defs>
+      <rect width="100%" height="100%" fill="#ffffff"/>
+      <path d="M 196,148 H 224" fill="none" stroke="#5F6062" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <path d="M 376,148 H 404" fill="none" stroke="#5F6062" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <path d="M 556,148 H 584" fill="none" stroke="#5F6062" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <path d="M 736,148 H 764" fill="none" stroke="#5F6062" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <rect x="44" y="104" width="152" height="88" rx="6" fill="#ffffff"/>
+      <rect x="44" y="104" width="152" height="88" rx="6" fill="rgba(95,96,98,0.10)" stroke="#7B7C7E" stroke-width="1"/>
+      <text x="120.0" y="153.0" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">Nutzerfrage</text>
+      <rect x="224" y="104" width="152" height="88" rx="6" fill="#ffffff"/>
+      <rect x="224" y="104" width="152" height="88" rx="6" fill="#ffffff" stroke="#1A171B" stroke-width="1"/>
+      <text x="300.0" y="147.0" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">Retrieval</text>
+      <text x="300.0" y="169.0" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle">Top-k Suche</text>
+      <rect x="404" y="104" width="152" height="88" rx="6" fill="#ffffff"/>
+      <rect x="404" y="104" width="152" height="88" rx="6" fill="#ffffff" stroke="#1A171B" stroke-width="1"/>
+      <text x="480.0" y="147.0" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">Kontext</text>
+      <text x="480.0" y="169.0" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle">Top-k Chunks</text>
+      <rect x="584" y="104" width="152" height="88" rx="6" fill="#ffffff"/>
+      <rect x="584" y="104" width="152" height="88" rx="6" fill="#ffffff" stroke="#1A171B" stroke-width="1"/>
+      <text x="660.0" y="147.0" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">LLM</text>
+      <text x="660.0" y="169.0" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle">Generierung</text>
+      <rect x="764" y="104" width="152" height="88" rx="6" fill="#ffffff"/>
+      <rect x="764" y="104" width="152" height="88" rx="6" fill="#ffffff" stroke="#1A171B" stroke-width="1"/>
+      <text x="840.0" y="147.0" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">Antwort</text>
+      <text x="840.0" y="169.0" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle">mit Belegen</text>
+      <path d="M 404,96 V 76 H 916 V 96" fill="none" stroke="#DB0031" stroke-width="1.4"/>
+      <text x="660.0" y="68" fill="#DB0031" font-size="12" font-weight="700" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle" letter-spacing="0.10em">FAITHFULNESS: DURCH KONTEXT GEDECKT?</text>
+      <path d="M 224,200 V 220 H 556 V 200" fill="none" stroke="#DB0031" stroke-width="1.4"/>
+      <text x="390.0" y="242" fill="#DB0031" font-size="12" font-weight="700" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle" letter-spacing="0.10em">CONTEXT-RECALL: STELLE ABGERUFEN?</text>
+    </svg>

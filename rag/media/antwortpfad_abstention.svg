@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 960 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="antwortpfad-abstention-title antwortpfad-abstention-desc">
+      <title id="antwortpfad-abstention-title">Vier Verteidigungslinien gegen Halluzination</title>
+      <desc id="antwortpfad-abstention-desc">Unterhalb der Konfidenzschwelle antwortet das System bewusst nicht; oberhalb läuft die Antwort über Citation-Prompt, Post-Generation-Check und Grounding-Score.</desc>
+      <defs>
+        <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#5F6062"/></marker>
+        <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#DB0031"/></marker>
+        <marker id="arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#007FC5"/></marker>
+      </defs>
+      <rect width="100%" height="100%" fill="#ffffff"/>
+      <path d="M 168,80 H 188" fill="none" stroke="#5F6062" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <path d="M 328,80 H 352" fill="none" stroke="#5F6062" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <path d="M 512,80 H 556" fill="none" stroke="#5F6062" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <path d="M 432,124 V 232" fill="none" stroke="#DB0031" stroke-width="1.4" marker-end="url(#arrow-accent)"/>
+      <path d="M 644,120 V 232" fill="none" stroke="#5F6062" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <path d="M 732,272 H 752" fill="none" stroke="#5F6062" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <rect x="518.0" y="54" width="32" height="14" rx="2" fill="#ffffff"/>
+      <text x="534" y="65" fill="#5F6062" font-size="11" font-weight="700" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle" letter-spacing="0.08em">JA</text>
+      <rect x="442" y="171" width="44" height="14" rx="2" fill="#ffffff"/>
+      <text x="448" y="182" fill="#DB0031" font-size="11" font-weight="700" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" letter-spacing="0.08em">NEIN</text>
+      <rect x="40" y="40" width="128" height="80" rx="6" fill="#ffffff"/>
+      <rect x="40" y="40" width="128" height="80" rx="6" fill="rgba(95,96,98,0.10)" stroke="#7B7C7E" stroke-width="1"/>
+      <text x="104.0" y="85.0" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">Query</text>
+      <rect x="188" y="40" width="140" height="80" rx="6" fill="#ffffff"/>
+      <rect x="188" y="40" width="140" height="80" rx="6" fill="#ffffff" stroke="#1A171B" stroke-width="1"/>
+      <text x="258.0" y="79.0" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">Retrieval</text>
+      <text x="258.0" y="101.0" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle">Top-k</text>
+      <polygon points="432,36 512,80 432,124 352,80" fill="#ffffff"/>
+      <polygon points="432,36 512,80 432,124 352,80" fill="#ffffff" stroke="#1A171B" stroke-width="1"/>
+      <text x="432" y="80" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">Konf. ≥ τ?</text>
+      <rect x="556" y="40" width="176" height="80" rx="6" fill="#ffffff"/>
+      <rect x="556" y="40" width="176" height="80" rx="6" fill="#ffffff" stroke="#1A171B" stroke-width="1"/>
+      <rect x="566" y="50" width="18" height="16" rx="2" fill="none" stroke="#1A171B" stroke-opacity="0.45" stroke-width="0.8"/>
+      <text x="575" y="62" fill="#1A171B" font-size="11" font-weight="700" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle">1</text>
+      <text x="644.0" y="79.0" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">LLM</text>
+      <text x="644.0" y="101.0" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle">Citation-Prompt</text>
+      <rect x="344" y="232" width="176" height="80" rx="6" fill="#ffffff"/>
+      <rect x="344" y="232" width="176" height="80" rx="6" fill="rgba(219,0,49,0.07)" stroke="#DB0031" stroke-width="1.4"/>
+      <rect x="354" y="242" width="18" height="16" rx="2" fill="none" stroke="#DB0031" stroke-opacity="0.45" stroke-width="0.8"/>
+      <text x="363" y="254" fill="#DB0031" font-size="11" font-weight="700" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle">3</text>
+      <text x="432.0" y="271.0" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">Abstention</text>
+      <text x="432.0" y="293.0" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle">„weiß nicht“</text>
+      <rect x="556" y="232" width="176" height="80" rx="6" fill="#ffffff"/>
+      <rect x="556" y="232" width="176" height="80" rx="6" fill="#ffffff" stroke="#1A171B" stroke-width="1"/>
+      <rect x="566" y="242" width="18" height="16" rx="2" fill="none" stroke="#1A171B" stroke-opacity="0.45" stroke-width="0.8"/>
+      <text x="575" y="254" fill="#1A171B" font-size="11" font-weight="700" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle">2</text>
+      <text x="644.0" y="271.0" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">Post-Gen-Check</text>
+      <text x="644.0" y="293.0" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle">gedeckt?</text>
+      <rect x="752" y="232" width="168" height="80" rx="6" fill="#ffffff"/>
+      <rect x="752" y="232" width="168" height="80" rx="6" fill="#ffffff" stroke="#1A171B" stroke-width="1"/>
+      <rect x="762" y="242" width="18" height="16" rx="2" fill="none" stroke="#1A171B" stroke-opacity="0.45" stroke-width="0.8"/>
+      <text x="771" y="254" fill="#1A171B" font-size="11" font-weight="700" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle">4</text>
+      <text x="836.0" y="271.0" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">Grounding-Score</text>
+      <text x="836.0" y="293.0" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle">SLI · Trace</text>
+      <line x1="40" y1="352" x2="920" y2="352" stroke="rgba(26,23,27,0.14)" stroke-width="0.8"/>
+      <text x="40" y="374" fill="#7B7C7E" font-size="11" font-weight="700" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" letter-spacing="0.14em">LEGENDE</text>
+      <rect x="140" y="362" width="20" height="14" rx="3" fill="rgba(95,96,98,0.10)" stroke="#7B7C7E" stroke-width="1"/>
+      <text x="168" y="374" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace">Eingabe</text>
+      <rect x="261" y="362" width="20" height="14" rx="3" fill="#ffffff" stroke="#1A171B" stroke-width="1"/>
+      <text x="289" y="374" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace">Schritt</text>
+      <rect x="382" y="362" width="20" height="14" rx="3" fill="rgba(219,0,49,0.07)" stroke="#DB0031" stroke-width="1.4"/>
+      <text x="410" y="374" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace">Abstention</text>
+    </svg>

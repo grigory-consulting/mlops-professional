@@ -2,8 +2,12 @@
 
 Folien und Lab-Material zur dreitägigen Schulung (gfu).
 
-**Folien:** https://grigory-consulting.github.io/mlops-professional/
-(Pfeiltasten zum Blättern, `Esc` für die Übersicht, `F` für Vollbild)
+**Folien:**
+
+- MLOps: https://grigory-consulting.github.io/mlops-professional/
+- Retrieval-Augmented Generation: https://grigory-consulting.github.io/mlops-professional/rag/
+
+Pfeiltasten zum Blättern, `Esc` für die Übersicht, `F` für Vollbild.
 
 ## Lab 1 vorbereiten
 

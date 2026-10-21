@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 960 232" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="kanonische-pipeline-title kanonische-pipeline-desc">
+      <title id="kanonische-pipeline-title">Kanonische Pipeline</title>
+      <desc id="kanonische-pipeline-desc">Der Bi-Encoder holt breit aus dem Index (Top-100), der Cross-Encoder bewertet jedes Paar neu und verdichtet auf Top-10, erst diese Kontexte sieht das LLM.</desc>
+      <defs>
+        <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#5F6062"/></marker>
+        <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#DB0031"/></marker>
+        <marker id="arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#007FC5"/></marker>
+      </defs>
+      <rect width="100%" height="100%" fill="#ffffff"/>
+      <path d="M 164,100 H 228" fill="none" stroke="#5F6062" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <path d="M 428,100 H 492" fill="none" stroke="#5F6062" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <path d="M 692,100 H 756" fill="none" stroke="#5F6062" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <rect x="428.0" y="74" width="64" height="14" rx="2" fill="#ffffff"/>
+      <text x="460" y="85" fill="#5F6062" font-size="11" font-weight="700" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle" letter-spacing="0.08em">TOP-100</text>
+      <rect x="694.0" y="74" width="60" height="14" rx="2" fill="#ffffff"/>
+      <text x="724" y="85" fill="#5F6062" font-size="11" font-weight="700" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle" letter-spacing="0.08em">TOP-10</text>
+      <rect x="28" y="56" width="136" height="88" rx="6" fill="#ffffff"/>
+      <rect x="28" y="56" width="136" height="88" rx="6" fill="rgba(95,96,98,0.10)" stroke="#7B7C7E" stroke-width="1"/>
+      <text x="96.0" y="99.0" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">Query</text>
+      <text x="96.0" y="121.0" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle">Nutzerfrage</text>
+      <rect x="228" y="56" width="200" height="88" rx="6" fill="#ffffff"/>
+      <rect x="228" y="56" width="200" height="88" rx="6" fill="#ffffff" stroke="#1A171B" stroke-width="1"/>
+      <text x="328.0" y="99.0" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">Bi-Encoder</text>
+      <text x="328.0" y="121.0" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle">ANN-Suche · 5–20 ms</text>
+      <rect x="492" y="56" width="200" height="88" rx="6" fill="#ffffff"/>
+      <rect x="492" y="56" width="200" height="88" rx="6" fill="rgba(219,0,49,0.07)" stroke="#DB0031" stroke-width="1.4"/>
+      <text x="592.0" y="99.0" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">Cross-Encoder</text>
+      <text x="592.0" y="121.0" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle">Rerank · 50–500 ms</text>
+      <rect x="756" y="56" width="176" height="88" rx="6" fill="#ffffff"/>
+      <rect x="756" y="56" width="176" height="88" rx="6" fill="#ffffff" stroke="#1A171B" stroke-width="1"/>
+      <text x="844.0" y="99.0" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">LLM</text>
+      <text x="844.0" y="121.0" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle">Antwort + Belege</text>
+      <path d="M 228,158 V 168 H 692 V 158" fill="none" stroke="#DB0031" stroke-width="1.4"/>
+      <text x="460.0" y="190" fill="#DB0031" font-size="12" font-weight="700" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle" letter-spacing="0.10em">BREIT HOLEN, DANN VERDICHTEN</text>
+    </svg>

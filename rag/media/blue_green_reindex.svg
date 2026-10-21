@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 960 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="blue-green-reindex-title blue-green-reindex-desc">
+      <title id="blue-green-reindex-title">Reindex ohne Downtime</title>
+      <desc id="blue-green-reindex-desc">Der Alias zeigt auf den Live-Index; der neue Index wird parallel aufgebaut, gegen das Goldset geprüft und erst bei bestandener Messung übernommen.</desc>
+      <defs>
+        <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#5F6062"/></marker>
+        <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#DB0031"/></marker>
+        <marker id="arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#007FC5"/></marker>
+      </defs>
+      <rect width="100%" height="100%" fill="#ffffff"/>
+      <path d="M 184,94 H 248" fill="none" stroke="#5F6062" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <path d="M 456,94 H 520" fill="none" stroke="#5F6062" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <path d="M 248,270 H 312" fill="none" stroke="#5F6062" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <path d="M 504,270 H 560" fill="none" stroke="#5F6062" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <path d="M 704,270 H 768" fill="none" stroke="#5F6062" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <path d="M 632,218 V 196 Q 632,188 624,188 H 360 Q 352,188 352,180 V 132" fill="none" stroke="#DB0031" stroke-width="1.4" marker-end="url(#arrow-accent)"/>
+      <rect x="414.0" y="162" width="156" height="14" rx="2" fill="#ffffff"/>
+      <text x="492" y="173" fill="#DB0031" font-size="11" font-weight="700" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle" letter-spacing="0.08em">JA: ALIAS SCHWENKT</text>
+      <rect x="712.0" y="244" width="48" height="14" rx="2" fill="#ffffff"/>
+      <text x="736" y="255" fill="#5F6062" font-size="11" font-weight="700" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle" letter-spacing="0.08em">NEIN</text>
+      <rect x="40" y="56" width="144" height="76" rx="6" fill="#ffffff"/>
+      <rect x="40" y="56" width="144" height="76" rx="6" fill="rgba(95,96,98,0.10)" stroke="#7B7C7E" stroke-width="1"/>
+      <text x="112.0" y="99.0" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">Anfrage</text>
+      <rect x="248" y="56" width="208" height="76" rx="6" fill="#ffffff"/>
+      <rect x="248" y="56" width="208" height="76" rx="6" fill="rgba(219,0,49,0.07)" stroke="#DB0031" stroke-width="1.4"/>
+      <text x="352.0" y="93.0" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">Alias</text>
+      <text x="352.0" y="115.0" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle">rag-current</text>
+      <rect x="520" y="56" width="224" height="76" rx="6" fill="#ffffff"/>
+      <rect x="520" y="56" width="224" height="76" rx="6" fill="rgba(26,23,27,0.05)" stroke="#5F6062" stroke-width="1"/>
+      <text x="632.0" y="93.0" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">Index v1</text>
+      <text x="632.0" y="115.0" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle">Embedder A · live</text>
+      <rect x="40" y="232" width="208" height="76" rx="6" fill="#ffffff"/>
+      <rect x="40" y="232" width="208" height="76" rx="6" fill="rgba(26,23,27,0.05)" stroke="#5F6062" stroke-width="1"/>
+      <text x="144.0" y="269.0" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">Index v2</text>
+      <text x="144.0" y="291.0" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle">Embedder B · Reindex</text>
+      <rect x="312" y="232" width="192" height="76" rx="6" fill="#ffffff"/>
+      <rect x="312" y="232" width="192" height="76" rx="6" fill="#ffffff" stroke="#1A171B" stroke-width="1"/>
+      <text x="408.0" y="269.0" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">Eval</text>
+      <text x="408.0" y="291.0" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle">gegen Goldset</text>
+      <polygon points="632,218 704,270 632,322 560,270" fill="#ffffff"/>
+      <polygon points="632,218 704,270 632,322 560,270" fill="#ffffff" stroke="#1A171B" stroke-width="1"/>
+      <text x="632" y="270" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">nDCG ok?</text>
+      <rect x="768" y="234" width="152" height="72" rx="20" fill="#ffffff"/>
+      <rect x="768" y="234" width="152" height="72" rx="20" fill="#ffffff" stroke="#1A171B" stroke-width="1"/>
+      <text x="844.0" y="275.0" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">v1 bleibt live</text>
+      <line x1="40" y1="348" x2="920" y2="348" stroke="rgba(26,23,27,0.14)" stroke-width="0.8"/>
+      <text x="40" y="370" fill="#7B7C7E" font-size="11" font-weight="700" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" letter-spacing="0.14em">LEGENDE</text>
+      <rect x="140" y="358" width="20" height="14" rx="3" fill="rgba(95,96,98,0.10)" stroke="#7B7C7E" stroke-width="1"/>
+      <text x="168" y="370" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace">Eingabe</text>
+      <rect x="261" y="358" width="20" height="14" rx="3" fill="#ffffff" stroke="#1A171B" stroke-width="1"/>
+      <text x="289" y="370" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace">Schritt</text>
+      <rect x="382" y="358" width="20" height="14" rx="3" fill="rgba(26,23,27,0.05)" stroke="#5F6062" stroke-width="1"/>
+      <text x="410" y="370" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace">Index</text>
+      <rect x="489" y="358" width="20" height="14" rx="3" fill="rgba(219,0,49,0.07)" stroke="#DB0031" stroke-width="1.4"/>
+      <text x="517" y="370" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace">Alias</text>
+    </svg>

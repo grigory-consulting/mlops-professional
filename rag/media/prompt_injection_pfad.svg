@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 960 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="prompt-injection-pfad-title prompt-injection-pfad-desc">
+      <title id="prompt-injection-pfad-title">Prompt Injection über ein vergiftetes Dokument</title>
+      <desc id="prompt-injection-pfad-desc">Eine versteckte Anweisung gelangt über den regulären Ingest in den Index und damit in den Kontext einer normalen Nutzerfrage.</desc>
+      <defs>
+        <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#5F6062"/></marker>
+        <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#DB0031"/></marker>
+        <marker id="arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#007FC5"/></marker>
+      </defs>
+      <rect width="100%" height="100%" fill="#ffffff"/>
+      <rect x="40" y="32" width="680" height="120" rx="8" fill="rgba(26,23,27,0.02)" stroke="rgba(26,23,27,0.10)" stroke-width="0.8"/>
+      <rect x="56" y="25" width="112" height="14" rx="2" fill="#ffffff"/>
+      <text x="64" y="36" fill="#7B7C7E" font-size="11" font-weight="700" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" letter-spacing="0.14em">ANGRIFFSPFAD</text>
+      <rect x="40" y="200" width="880" height="120" rx="8" fill="rgba(26,23,27,0.02)" stroke="rgba(26,23,27,0.10)" stroke-width="0.8"/>
+      <rect x="56" y="193" width="80" height="14" rx="2" fill="#ffffff"/>
+      <text x="64" y="204" fill="#7B7C7E" font-size="11" font-weight="700" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" letter-spacing="0.14em">RAG-PFAD</text>
+      <path d="M 216,92 H 256" fill="none" stroke="#5F6062" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <path d="M 472,92 H 512" fill="none" stroke="#5F6062" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <path d="M 600,128 V 168 Q 600,176 592,176 H 316 Q 308,176 308,184 V 224" fill="none" stroke="#5F6062" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <path d="M 212,260 H 232" fill="none" stroke="#5F6062" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <path d="M 384,260 H 404" fill="none" stroke="#5F6062" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <path d="M 556,260 H 576" fill="none" stroke="#5F6062" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <path d="M 728,260 H 748" fill="none" stroke="#5F6062" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <rect x="64" y="56" width="152" height="72" rx="6" fill="#ffffff"/>
+      <rect x="64" y="56" width="152" height="72" rx="6" fill="rgba(26,23,27,0.03)" stroke="rgba(26,23,27,0.30)" stroke-width="1"/>
+      <text x="140.0" y="97.0" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">Angreifer</text>
+      <rect x="256" y="56" width="216" height="72" rx="6" fill="#ffffff"/>
+      <rect x="256" y="56" width="216" height="72" rx="6" fill="rgba(26,23,27,0.03)" stroke="rgba(26,23,27,0.30)" stroke-width="1"/>
+      <text x="364.0" y="91.0" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">Dokument</text>
+      <text x="364.0" y="113.0" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle">versteckte Anweisung</text>
+      <rect x="512" y="56" width="176" height="72" rx="6" fill="#ffffff"/>
+      <rect x="512" y="56" width="176" height="72" rx="6" fill="#ffffff" stroke="#1A171B" stroke-width="1"/>
+      <text x="600.0" y="97.0" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">Ingest + Index</text>
+      <rect x="60" y="224" width="152" height="72" rx="6" fill="#ffffff"/>
+      <rect x="60" y="224" width="152" height="72" rx="6" fill="rgba(95,96,98,0.10)" stroke="#7B7C7E" stroke-width="1"/>
+      <text x="136.0" y="265.0" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">Nutzerfrage</text>
+      <rect x="232" y="224" width="152" height="72" rx="6" fill="#ffffff"/>
+      <rect x="232" y="224" width="152" height="72" rx="6" fill="#ffffff" stroke="#1A171B" stroke-width="1"/>
+      <text x="308.0" y="259.0" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">Retrieval</text>
+      <text x="308.0" y="281.0" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle">Top-k</text>
+      <rect x="404" y="224" width="152" height="72" rx="6" fill="#ffffff"/>
+      <rect x="404" y="224" width="152" height="72" rx="6" fill="rgba(219,0,49,0.07)" stroke="#DB0031" stroke-width="1.4"/>
+      <text x="480.0" y="259.0" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">Kontext</text>
+      <text x="480.0" y="281.0" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle">inkl. Gift-Chunk</text>
+      <rect x="576" y="224" width="152" height="72" rx="6" fill="#ffffff"/>
+      <rect x="576" y="224" width="152" height="72" rx="6" fill="#ffffff" stroke="#1A171B" stroke-width="1"/>
+      <text x="652.0" y="259.0" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">LLM</text>
+      <text x="652.0" y="281.0" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle">folgt Anweisung</text>
+      <rect x="748" y="224" width="152" height="72" rx="6" fill="#ffffff"/>
+      <rect x="748" y="224" width="152" height="72" rx="6" fill="rgba(219,0,49,0.07)" stroke="#DB0031" stroke-width="1.4"/>
+      <text x="824.0" y="259.0" fill="#1A171B" font-size="16" font-weight="700" font-family="'Trebuchet MS','Lucida Grande','Lucida Sans Unicode',Arial,Helvetica,sans-serif" text-anchor="middle">Antwort</text>
+      <text x="824.0" y="281.0" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" text-anchor="middle">manipuliert</text>
+      <line x1="40" y1="344" x2="920" y2="344" stroke="rgba(26,23,27,0.14)" stroke-width="0.8"/>
+      <text x="40" y="366" fill="#7B7C7E" font-size="11" font-weight="700" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace" letter-spacing="0.14em">LEGENDE</text>
+      <rect x="140" y="354" width="20" height="14" rx="3" fill="rgba(95,96,98,0.10)" stroke="#7B7C7E" stroke-width="1"/>
+      <text x="168" y="366" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace">Eingabe</text>
+      <rect x="261" y="354" width="20" height="14" rx="3" fill="#ffffff" stroke="#1A171B" stroke-width="1"/>
+      <text x="289" y="366" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace">Schritt</text>
+      <rect x="382" y="354" width="20" height="14" rx="3" fill="rgba(26,23,27,0.03)" stroke="rgba(26,23,27,0.30)" stroke-width="1"/>
+      <text x="410" y="366" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace">Angreiferseite</text>
+      <rect x="552" y="354" width="20" height="14" rx="3" fill="rgba(219,0,49,0.07)" stroke="#DB0031" stroke-width="1.4"/>
+      <text x="580" y="366" fill="#5F6062" font-size="12" font-family="Menlo,Consolas,'DejaVu Sans Mono',monospace">kompromittiert</text>
+    </svg>
